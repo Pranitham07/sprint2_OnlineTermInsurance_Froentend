@@ -1,0 +1,34 @@
+
+<h2> Policy List </h2>
+
+<table class = "table table-striped">
+    <thead>
+        <tr>
+            <th> policyId </th>
+            <th> userid </th>
+            <th> userpolicyid </th>
+            <th> registeredDate </th>
+            <th> amount </th>
+            <th> totalTime </th>
+            <th> amountPaid </th>
+            <th> Actions </th>
+        </tr>
+    </thead>
+    <tbody>
+    
+        <tr *ngFor = "let policy of policy" >
+            <td> {{ policy.policyId }} </td>
+            <td> {{ policy.userid }} </td>
+            <td> {{ policy.userpolicyid }} </td>
+            <td> {{ policy.registeredDate }} </td>
+            <td> {{ policy.amount }} </td>
+            <td> {{ policy.totalTime }} </td>
+            <td> {{ policy.amountPaid }} </td>
+            <td>
+                <button (click) = "updatePolicy(policy.policyId)" class = "btn btn-info">Update</button>
+                <button (click) = "deletePolicy(policy.policyId)" class = " btn btn-danger" style="margin-left:10px">Delete</button>
+            </td>
+
+        </tr>
+    </tbody>
+</table>

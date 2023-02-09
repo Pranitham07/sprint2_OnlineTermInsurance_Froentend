@@ -1,0 +1,27 @@
+<h2> Admin List </h2>
+<table class = "table table-striped">
+    <thead>
+        <tr>
+            <th>admin Id</th>
+            <th>firstName</th>
+            <th>middleName</th>
+            <th>lastName</th>
+            <th>password</th>
+            <th>emailId</th>
+            <th>contactNo</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let admin of admins">
+            <td> {{ admin.adminId }} </td>
+            <td> {{ admin.firstName }} </td>
+            <td> {{ admin.middleName}} </td>
+            <td> {{ admin.lastName }} </td>
+            <td> {{ admin.password }} </td>
+            <td> {{ admin.emailId }} </td>
+            <td> {{ admin.contactNo }} </td>
+
+        </tr>
+    </tbody>
+</table>

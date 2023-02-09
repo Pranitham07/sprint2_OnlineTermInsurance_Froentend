@@ -1,0 +1,156 @@
+<!-- {{PaymentList | json}} -->
+
+<div class="container-fluid">
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Online-Admission-System</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#addPayment" type="submit">Add Payment</button>
+        </div>
+      </div>
+  </nav>
+
+
+
+  <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">PaymentId</th>
+          <th scope="col">EmailId</th>
+          <th scope="col">ApplicationId</th>
+          <th scope="col">PaymentDescription</th>
+          <th scope="col">PaymentDate</th>
+          <th scope="col">PaymentStatus</th>
+          <th scope="col">PaymentAmount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let payment of paymentList">
+          <td>{{payment.paymentId}}</td>
+          <td>{{payment.emailId}}</td>
+          <td>{{payment.applicationId}}</td>
+          <td>{{payment.paymentDescription}}</td>
+          <td>{{payment.paymentDate}}</td>
+          <td>{{payment.paymentStatus}}</td>
+          <td>{{payment.paymentAmount}}</td>
+          <td>
+              <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#editPayment" (click)="editPayment(payment)">Edit</button>
+              <button type="button" class="btn btn-outline-danger" (click)="deletePayment(payment)">Delete</button>
+          </td>
+
+        </tr>
+        
+      </tbody>
+    </table>
+
+
+<!-- Add payment modal -->
+<div class="modal fade" id="addPayment" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add new Payment</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+          <form [formGroup]="paymentDetails">
+              <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">paymentId </label>
+                  <input type="text" formControlName="paymentId" class="form-control" id="paymentId" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">emailId </label>
+                  <input type="email" formControlName="emailId" class="form-control" id="emailId" aria-describedby="emailHelp">
+                </div>
+              <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">applicationId </label>
+                  <input type="text" formControlName="applicationId" class="form-control" id="applicationId" aria-describedby="emailHelp">
+                </div>
+              
+              <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">paymentDescription </label>
+                  <input type="text" formControlName="paymentDescription" class="form-control" id="paymentDescription" aria-describedby="emailHelp">
+              </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">paymentDate </label>
+                  <input type="text" formControlName="paymentDate" class="form-control" id="paymentDate" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">paymentStatus </label>
+                  <input type="text" formControlName="paymentStatus" class="form-control" id="paymentStatus" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">paymentAmount </label>
+                  <input type="text" formControlName="paymentAmount" class="form-control" id="paymentAmount" aria-describedby="emailHelp">
+                </div>
+                
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="addPayment()">Add payment</button>
+                </div>
+            </form>
+
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+<!-- Edit payment modal -->
+<div class="modal fade" id="editEmployee" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit payment details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="paymentDetails">
+              <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">paymentId </label>
+                  <input type="text" formControlName="paymentId" class="form-control" id="paymentId" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">emailId </label>
+                  <input type="email" formControlName="emailId" class="form-control" id="emailId" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">applicationId </label>
+                  <input type="text" formControlName="applicationId" class="form-control" id="applicationId" aria-describedby="emailHelp">
+                </div>
+              <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">paymentDescription </label>
+                  <input type="text" formControlName="paymentDescription" class="form-control" id="paymentDescription" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">paymentDate </label>
+                  <input type="text" formControlName="paymentDate" class="form-control" id="paymentDate" aria-describedby="emailHelp">
+                </div>
+              <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">paymentStatus </label>
+                  <input type="text" formControlName="paymentStatus" class="form-control" id="paymentStatus" aria-describedby="emailHelp">
+                </div>
+              <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">paymentAmount </label>
+                  <input type="text" formControlName="paymentAmount" class="form-control" id="paymentAmount" aria-describedby="emailHelp">
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-outline-success"(click)="updatePayment()">Update</button>
+                </div>
+            </form>
+          
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</div> 
+

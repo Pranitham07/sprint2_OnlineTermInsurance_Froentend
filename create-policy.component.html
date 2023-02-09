@@ -1,0 +1,52 @@
+<div class="col-md-8 offset-md-3">
+<h3> Create Policy </h3>
+<form (ngSubmit) = "onSubmit()">
+
+    <div class="form-group">
+        <label> policyId</label>
+        <input type="text" class ="form-control" id = "policyId"
+        [(ngModel)] = "policy.policyId" name = "policyId">
+
+    </div>
+
+    <div class="form-group">
+        <label> userid</label>
+        <input type="text" class ="form-control" id = "userid"
+        [(ngModel)] = "policy.userid" name = "userid">
+
+    </div>
+
+    <div class="form-group">
+        <label> userpolicyid</label>
+        <input type="text" class ="form-control" id = "userpolicyid"
+        [(ngModel)] = "policy.userpolicyid" name = "userpolicyid">
+    </div>
+
+    <div class="form-group">
+        <label> registeredDate</label>
+        <input type="text" class ="form-control" id = "registeredDate"
+        [(ngModel)] = "policy.registeredDate" name = "registeredDate">
+    </div>
+
+    <div class="form-group">
+        <label> amount</label>
+        <input type="text" class ="form-control" id = "amount"
+        [(ngModel)] = "policy.amount" name = "amount">
+    </div>
+
+    <div class="form-group">
+        <label> totalTime</label>
+        <input type="text" class ="form-control" id = "totalTime"
+        [(ngModel)] = "policy.totalTime" name = "totalTime">
+    </div>
+
+    <div class="form-group">
+        <label> amountPaid</label>
+        <input type="text" class ="form-control" id = "amountPaid"
+        [(ngModel)] = "policy.amountPaid" name = "amountPaid">
+        
+    </div>
+
+    <button class = "btn btn-success" type="submit"></button>
+</form>
+</div>
